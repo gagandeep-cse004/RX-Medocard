@@ -1,0 +1,601 @@
+/* ✅ Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ✅ Layout */
+.layout-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  
+}
+
+/* ✅ Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #141e5d;
+  color: #fff;
+  padding: 30px 20px;
+  flex-shrink: 0;
+  height: 200vh;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-container img {
+  width: 120px;
+  height: auto;
+  border-radius: 9px;
+}
+
+.sidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.sidebar a:hover {
+  background-color: #2c1c77;
+}
+
+/* ✅ Main Content */
+.main {
+  flex-grow: 1;
+  padding: 40px 50px 50px 50px;
+  position: relative;
+}
+
+/* ✅ Card Box */
+.card-box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+.card-box h3 {
+  margin-bottom: 20px;
+  color: #141e5d;
+}
+
+.card-box p {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* ✅ Button Group */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #1e3fa3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 160px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3a5de3;
+  box-shadow: 0 0 10px rgba(58, 93, 227, 0.5);
+}
+
+/* ✅ Rotating Card Preview */
+.card-image {
+  width: 350px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-left: 0px;
+}
+
+.rotating-card-container {
+  width: 390px;
+  height: 220px;
+  perspective: 1000px;
+  margin: 30px auto;
+}
+
+.rotating-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+.rotating-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  
+}
+
+.rotating-back {
+  transform: rotateY(180deg);
+}
+
+/* ✅ Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card-item {
+  background-color: #eef1f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-item h4 {
+  margin-bottom: 10px;
+  color: #1e3fa3;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;
+    height: auto;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rotating-card-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ✅ View Services Button */
+.view-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ Services Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  margin: 8% auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #007bff;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.modal-content ul {
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+.modal-content ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* ✅ Modal Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Global Styles */
+.hospital-info,
+.recommended,
+.contact,
+.form-section {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hospital-info {
+  display: flex;
+  gap: 25px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.hospital-info img {
+  width: 45%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.info-text h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.discount {
+  background: #eaf3ff;
+  padding: 12px 15px;
+  border-left: 5px solid #0d6efd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.appointment-btn {
+  background: #0d6efd;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  transition: 0.3s;
+}
+
+.appointment-btn:hover {
+  background: #084abb;
+}
+
+.appointment-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Recommended hospitals */
+.recommended {
+  margin: 40px 0;
+}
+
+.recommended h2 {
+  margin-bottom: 20px;
+}
+
+.hospital-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.hospital-box {
+  background: white;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  animation: fadeIn 1s ease;
+}
+
+.hospital-box:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.hospital-box img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.offer {
+  background: #0d6efd;
+  color: white;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Contact */
+.contact {
+  background: #f5f7ff;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.call-btn {
+  background: #28a745;
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: .3s;
+}
+
+.call-btn:hover {
+  background: #1e7e34;
+}
+
+/* Form */
+.form-section {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+}
+
+.form-section form {
+  display: grid;
+  gap: 15px;
+}
+
+.form-section input,
+.form-section textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #b9c7e0;
+  font-size: 15px;
+  width: 100%;
+}
+
+.form-section button {
+  background: #0d6efd;
+  padding: 14px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.form-section button:hover {
+  background: #084abb;
+}
+
+/* Back Button */
+.back-btn {
+  margin-top: 20px;
+  background: #333;
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.back-btn:hover {
+  background: #111;
+}
+ .form-container {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 500px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .form-container:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 28px;
+    color: #003366;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  label {
+    font-weight: 600;
+    margin: 14px 0 6px;
+    display: block;
+    color: #003366;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="file"],
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    transition: border 0.3s ease;
+  }
+
+  input:focus,
+  select:focus {
+    border-color: #0055aa;
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #0055aa;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #003366;
+  }
+
+  .dropdown {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .dropdown-btn {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+  }
+
+  .dropdown-btn:hover {
+    border-color: #0055aa;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .dropdown-header {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    background: #f0f4ff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .dropdown-header input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+
+  .dropdown-list {
+    max-height: 260px;
+    overflow-y: auto;
+  }
+
+  .dropdown-list div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.2s ease;
+  }
+
+  .dropdown-list div:hover {
+    background: #e6f0ff;
+  }

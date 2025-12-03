@@ -1,0 +1,115 @@
+/* Custom CSS for Pharmacy How It Works section */
+.steps-section .step-number {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: #001d4f !important;
+    color: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 600 !important;
+    box-shadow: 0 5px 15px rgba(0, 29, 79, 0.2) !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
+    margin: 0 !important; /* Override any margin that might be set */
+}
+
+.steps-section .step-card {
+    text-align: center !important;
+    padding: 2rem 2rem 3rem 2rem !important;
+    position: relative !important;
+    background: white !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    height: 100% !important;
+}
+
+.steps-section .step-card:hover .step-number {
+    background: #28a745 !important;
+    transform: scale(1.1) !important;
+}
+
+.steps-section .step-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 30px rgba(0, 29, 79, 0.15) !important;
+}
+
+.steps-section .step-icon {
+    font-size: 2.5rem !important;
+    color: #28a745 !important;
+    margin-bottom: 1rem !important;
+}
+
+@media (max-width: 575.98px) {
+    .steps-section .step-card {
+        padding: 1.5rem 1.5rem 3rem 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .steps-section .step-number {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+        bottom: 0.75rem !important;
+        right: 0.75rem !important;
+    }
+    
+    .steps-section .step-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .steps-section .step-description {
+        font-size: 0.9rem !important;
+    }
+
+    .truemeds-section {
+    background: #f5f8fa;
+    border-radius: 15px;
+    padding: 60px 0;
+    margin-top: 50px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.truemeds-section .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.truemeds-section .section-description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.truemeds-section .truemeds-features {
+    list-style: none;
+    padding-left: 0;
+}
+
+.truemeds-section .truemeds-features li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.truemeds-section .truemeds-features li i {
+    color: #0d6efd;
+    margin-right: 10px;
+}
+
+.truemeds-section .truemed-image {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+}

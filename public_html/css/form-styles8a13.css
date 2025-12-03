@@ -1,0 +1,45 @@
+/* Global Form Styles for RX-MedoCard */
+
+/* Hero Form with White Border */
+.hero-form {
+    border: 3px solid white !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important; /* Add a subtle white glow */
+    transition: all 0.3s ease;
+}
+
+.hero-form:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7) !important; /* Enhance glow on hover */
+}
+
+/* Form Input Styling */
+.hero-form .form-control,
+.hero-form .form-select {
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.hero-form .form-control:focus,
+.hero-form .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.15);
+}
+
+/* Form Button Styling */
+.hero-form .btn-primary,
+.hero-form .btn-apply-now,
+.hero-form .btn-book-now {
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.hero-form .btn-primary:hover,
+.hero-form .btn-apply-now:hover,
+.hero-form .btn-book-now:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}

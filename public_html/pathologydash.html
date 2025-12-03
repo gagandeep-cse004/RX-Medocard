@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Health pathology Network</title>
+    <style>
+        /* ---------- Base Styles ---------- */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #001f3f, #005f99);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(0, 0, 50, 0.6);
+            animation: flicker 3s infinite alternate;
+        }
+
+        header h1 {
+            font-size: 2.3em;
+            color: #00bfff;
+            text-shadow: 0 0 20px #00bfff, 0 0 40px #0077b6;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        @keyframes flicker {
+
+            0%,
+            19%,
+            21%,
+            23%,
+            25%,
+            54%,
+            56%,
+            100% {
+                opacity: 1;
+            }
+
+            20%,
+            24%,
+            55% {
+                opacity: 0.4;
+            }
+        }
+
+        /* ---------- Hospital Info ---------- */
+        .hospital-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 40px;
+        }
+
+        .hospital-info img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00bfff;
+        }
+
+        .info-text {
+            max-width: 500px;
+        }
+
+        .info-text h2 {
+            color: #00bfff;
+        }
+
+        .discount {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-top: 10px;
+            border-left: 4px solid #00bfff;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #00bfff;
+            }
+
+            to {
+                box-shadow: 0 0 20px #00ffff;
+            }
+        }
+
+        /* ---------- Recommended Hospitals ---------- */
+        .recommended {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .recommended h2 {
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .hospital-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .hospital-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 15px #00bfff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hospital-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px #00ffff;
+        }
+
+        .hospital-box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .hospital-box h3 {
+            color: #00bfff;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .hospital-box p {
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .offer {
+            background-color: rgba(0, 191, 255, 0.2);
+            border: 1px solid #00bfff;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: #00ffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00bfff;
+        }
+
+        /* ---------- Contact Section ---------- */
+        .contact {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+            color: #00bfff;
+            font-size: 1.6em;
+        }
+
+        .call-btn {
+            background-color: #00bfff;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00bfff;
+            transition: 0.3s;
+        }
+
+        .call-btn:hover {
+            background-color: #0077b6;
+            box-shadow: 0 0 25px #00ffff;
+        }
+
+        /* ---------- Form Section ---------- */
+        .form-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 15px #00bfff;
+        }
+
+        .form-section h3 {
+            text-align: center;
+            color: #00bfff;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 0.95em;
+        }
+
+        input[type="file"] {
+            color: #fff;
+        }
+
+        button[type="submit"] {
+            background-color: #00bfff;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0077b6;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            background-color: rgba(0, 0, 30, 0.6);
+            color: #b3e5ff;
+        }
+
+        /* ---------- Responsive Design ---------- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .hospital-info {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .hospital-info img {
+                max-width: 100%;
+            }
+
+            .hospital-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hospital-box {
+                width: 90%;
+            }
+
+            .form-section {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .call-btn {
+                width: 90%;
+                font-size: 1em;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hospital-box {
+                width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🏥 City Health Pathology Network</h1>
+        <h2>Via RX Medocard</h2>
+        <p>“Your Health, Our Priority — 24x7 Care”</p>
+    </header>
+
+    <section class="hospital-info">
+        <img src="https://media.istockphoto.com/photos/modern-hospital-building-picture-id1312706413?b=1&k=20&m=1312706413&s=170667a&w=0&h=VRi3w2E1UqvCCcK-nDV6mH7FhDZoTU9MM2QKSom96X4="
+            alt="Hospital Image" />
+        <div class="info-text">
+            <h2>About Our Pathology Services</h2>
+            <p>We connect you with top hospitals in the city offering the best outpatient Pathology care with exclusive
+                discounts and free checkups for a limited time.</p>
+            <div class="discount">
+                🎉 <strong>Special Offer:</strong> Get <b>20% OFF</b> on select hospital Pathology Consultations this
+                week!
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Hospitals -->
+    <section class="recommended">
+        <h2>🏥 Our Best Recommendations for You</h2>
+        <div class="hospital-grid">
+
+            <!-- MD City Hospital -->
+            <div class="hospital-box">
+                <img style="height: 250px;" src="image.png" alt="MD City Hospital" />
+                <h3>MD City Hospital</h3>
+                <p><b>Address:</b> Sector 21,Noida,India</p>
+                <p>Top-rated multi-speciality hospital providing Pathology consultation this month.</p>
+                <div class="offer">💙 30% OFF on Pathology</div>
+            </div>
+
+            <!-- Sarvodaya Hospital -->
+            <div class="hospital-box">
+                <img style="height: 250px;" src="./images/sorvodya-hospital.jpg" alt="Sarvodaya Hospital" />
+                <h3>Sarvodaya Hospital</h3>
+                <p><b>Address:</b>Greater Noida,India</p>
+                <p>Providing expert care and modern facilities. Enjoy a special limited-time Pathology discount.</p>
+                <div class="offer">🔥 20% OFF on Pathology</div>
+            </div>
+
+            <!-- Felix Hospital -->
+            <div class="hospital-box">
+                <img style="height: 250px;" src="./images/felix.jpg" alt="Felix Hospital" />
+                <h3>Felix Hospital</h3>
+                <p><b>Address:</b> Sector 137, Noida, Uttar Pradesh 201305</p>
+                <p>Comprehensive healthcare services with modern Pathology facilities and experienced doctors.</p>
+                <div class="offer">💰 20% Discount on Pathology</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact">
+  <h2>📞 Contact Us</h2>
+  <a href="tel:+919999307517"><button class="call-btn">Call Us Now</button></a>
+</section>
+
+<section class="form-section">
+  <div style="display: flex;margin-bottom: 30px;">
+            <img style="width: 100px;height: 100px;justify-content: center;" src="treelogo.jpg" alt="">
+            <h3>🩺 Pathology Appointment Form</h3>
+        </div>
+  <form id="pathologyForm" action="submit_pathology.php" method="POST" enctype="multipart/form-data">
+    
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="text" name="hospital" placeholder="Hospital Name" required />
+    <input type="text" name="patient_id" placeholder="Patient ID / Email" required />
+    <input type="text" name="contact" placeholder="Contact Number (for easy reach-out)" required />
+    <input type="date" name="date" required />
+    <input type="text" name="card_number" placeholder="Card Number" />
+    <label for="">Please upload your old prescription</label>
+    <input type="file" name="receipt" accept="image/*,application/pdf" required/>
+    <textarea name="description" rows="3" placeholder="Description of receipt or upload directly above"></textarea>
+    
+    <button type="submit">Submit Form</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 City Health Network | Rx Medo Card
+</footer>

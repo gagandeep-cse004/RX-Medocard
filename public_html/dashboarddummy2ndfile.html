@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RX Medo Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="layout-container">
+    <!-- ✅ Sidebar -->
+    <div class="sidebar">
+      <div class="logo-container">
+        <img src="treelogo.jpg" alt="RX Medocard Logo">
+      </div>
+      <a onclick="showSection('dashboard')">Profile</a>
+      <a onclick="showSection('cards')">Card Details</a>
+      <a onclick="showSection('membership')">Family Plans</a>
+      <a onclick="showSection('hospitals')">Hospitals</a>
+      <a href="pharmacydash.html">Pharmacy</a>
+      <a href="diagnosticdash.html">Diagnostic</a>
+      <a href="pathologydash.html">Pathology</a>
+      <a href="opddash.html">OPD</a>
+      <a onclick="showSection('payment')">Payment History</a>
+      <a href="index.html" onclick="confirmLogout()">Logout</a>
+    </div>
+
+    <!-- ✅ Main Content -->
+    <div class="main">
+      <!-- ✅ Dashboard Section -->
+      <div id="dashboard" class="card-box dynamic-section">
+        <h3>Welcome, BRINATINA M</h3>
+        <p><strong>Selected Card:</strong> RX Medo Insure Card</p>
+        <p><strong>Type:</strong> Health Insurance</p>
+        <p><strong>Validity:</strong> 1 Year (Valid until 2026-01-15)</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+          <li>✔ Waiver of First Year Exclusion</li>
+          <li>✔ Waiver of 30 Days Waiting Period</li>
+          <li>✔ Waiver of First Two Year Exclusion</li>
+          <li>✔ Cover for Pre-Existing Diseases</li>
+          <li>✔ Insurance Coverage of ₹5 Lakhs & ₹50 Lakhs Accidental</li>
+          <li>✔ Free Online Consultation with Empanelled Doctors</li>
+          <li>✔ Long term discount upto <b>20%</b> for 5 Years extension on this Insure card</li>
+        </ul>
+
+        <div class="button-group">
+          <!--<a href="receipt.html" class="btn">Make Payment</a>-->
+          <a href="yellowcardfront.jpg" class="btn">Download Your Card</a>
+          <a href="receipt.html" class="btn">Download Your Receipt</a>
+        </div>
+
+        <!-- ✅ Rotating Card Preview -->
+        <div class="rotating-card-container">
+          <div class="rotating-card" id="rotatingCard">
+            <div class="rotating-face" id="face1">
+              <img src="yellowcardfront.jpg" alt="Yellow Front" class="card-image">
+            </div>
+            <div class="rotating-face rotating-back" id="face2">
+              <img src="yellowcardback.jpg" alt="Yellow Back" class="card-image">
+            </div>
+            <div class="rotating-face" id="face3">
+              <img src="bluecardfront.jpg" alt="Blue Front" class="card-image">
+            </div>
+            <div class="rotating-face rotating-back" id="face4">
+              <img src="bluecardback .jpg" alt="Blue Back" class="card-image">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ Cards Section -->
+<div id="cards" class="card-box dynamic-section" style="display: none;">
+  <h3>Available RX Medo Cards</h3>
+  <p>You can select the other card that suits your needs:</p>
+
+  <div class="button-group">
+    <!--<a href="process_payment.php" class="btn">Make Payment</a>-->
+    <a href="yellowcardfront.jpg" class="btn">Download Your Card</a>
+    <a href="receipt.html" class="btn">Download Your Receipt</a>
+  </div>
+
+  <div class="card-grid">
+    <!-- ✅ First Card with View Services Button -->
+    <div class="card-item">
+      <h4>RX Medo Card</h4>
+      <p>Offer: ₹2500 (Original ₹3500)</p>
+      <button onclick="showServices()" class="view-btn">View Services</button>
+    </div>
+
+    <!-- Other Cards -->
+    <div class="card-item">
+  <h4>RX Medo Insure Card</h4>
+  <p>Coverage up to ₹5 Lakh</p>
+  <button onclick="showInsureServices()" class="view-btn">View Services</button>
+</div>
+
+    <div class="card-item"><h4>RX Insure Top Up Card</h4><p>Complete protection</p></div>
+    <div class="card-item"><h4>RX Medo Insure Top-Up Card</h4><p>Combo Plan</p></div>
+  </div>
+</div>
+
+      <!-- ✅ Family Plans Section -->
+<div id="membership" class="card-box dynamic-section" style="display: none;">
+  <h3>Family Plans</h3>
+  <ul>
+    <li>Basic – ₹5,000/year (2 members)</li>
+    <li>Standard – ₹10,000/year (4 members)</li>
+    <li>Premium – ₹15,000/year (6 members + benefits)</li>
+  </ul>
+</div>
+
+<!-- ✅ Diagnostic Section -->
+<!-- <div id="diagnostic" class="card-box dynamic-section" style="display: none;">
+  <h3>Diagnostic Services</h3>
+  <p>Explore the services available under our partnered diagnostic centers:</p>
+
+  <div class="card-grid">
+    
+    <div class="card-item">
+      <h4>🧪 Advanced Lab Tests</h4>
+      <p>Comprehensive testing for accurate and timely results including blood tests, pathology, and more.</p>
+    </div>
+
+    <div class="card-item">
+      <h4>🖼 Imaging Services</h4>
+      <p>State-of-the-art imaging facilities including X-ray, MRI, CT scan, and ultrasound for precise diagnosis.</p>
+    </div>
+
+    <div class="card-item">
+      <h4>🩺 Preventive Health Check-ups</h4>
+      <p>Regular health packages for early detection and maintaining overall well-being.</p>
+    </div>
+  </div>
+
+  <div class="button-group">
+
+  </div>
+</div> -->
+<!-- ✅ Pharmacy Section -->
+<!-- <div id="pharmacy" class="card-box dynamic-section" style="display: none;">
+  <h3>Medicine Categories</h3>
+  <p>Explore our curated range of pharmacy products for your health and wellness needs:</p>
+
+  <div class="card-grid">
+    
+    <div class="card-item">
+      <h4>💊 Prescription Medicines</h4>
+      <p>Wide range of prescription medications at discounted prices.</p>
+    </div>
+
+    <div class="card-item">
+      <h4>🧴 Over-the-Counter</h4>
+      <p>Common medications available without prescription — convenient and trusted.</p>
+    </div>
+
+    <div class="card-item">
+      <h4>🌿 Health Supplements</h4>
+      <p>Vitamins and supplements for better health — inspired by nature and tradition.</p>
+    </div>
+
+    <div class="card-item">
+      <h4>🪔 Ayurvedic Products</h4>
+      <p>Explore our range of Ayurvedic products — rooted in traditional Indian medicine.</p>
+    </div>
+
+    <div class="card-item">
+      <h4>🧼 Personal Care</h4>
+      <p>Healthcare and personal hygiene products — essentials for daily wellness.</p>
+    </div>
+
+    
+    <div class="card-item">
+      <h4>🩹 Medical Supplies</h4>
+      <p>Essential medical tools and field supplies — ready when needed.</p>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <a href="#" class="btn">Shop Now</a>
+    <a href="#" class="btn">Download Product List</a>-->
+  <!-- </div>
+</div>  -->
+<!-- ✅ OPD Section
+<div id="opd" class="card-box dynamic-section" style="display: none;">
+  <h3>Our OPD Services</h3>
+  <p>Comprehensive healthcare services to address all your medical needs:</p>
+
+  <div class="card-grid">
+    <!-✅ Family Physician -->
+    <!-- <div class="card-item">
+      <h4>👨‍⚕ Family Physician</h4>
+      <p>Personalised health solutions from our in-house Family Physicians for you & your family anytime anywhere.</p>
+      <div class="button-group">
+      </div>
+    </div>
+
+    <div class="card-item">
+      <h4>🩺 Specialist Consultation</h4>
+      <p>Schedule an appointment with our in-house or empanelled specialists for specific health concerns and get expert medical advice.</p>
+      <div class="button-group">
+       
+      </div>
+    </div>
+
+    <div class="card-item">
+      <h4>🧪 Diagnostic Services</h4>
+      <p>Comprehensive diagnostic tests and screenings to identify health issues and guide treatment plans.</p>
+      <div class="button-group">
+        
+      </div>
+    </div>
+    <div class="card-item">
+      <h4>🛡 Preventive Care</h4>
+      <p>Regular check-ups and screenings to prevent health issues and maintain optimal wellness.</p>
+      <div class="button-group">
+        
+      </div>
+    </div>
+
+    <div class="card-item">
+      <h4>🔄 Follow-up Care</h4>
+      <p>Continuous monitoring and care to ensure recovery and optimal health outcomes.</p>
+      <div class="button-group">
+        <a href="#" class="btn">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div class="card-item">
+      <h4>🩺 Specialist Consultation</h4>
+      <p>Expert consultation with specialists to address concerns for specific medical conditions.</p>
+      <div class="button-group">
+        
+      </div>
+    </div>
+  </div>
+</div>  -->
+<!-- ✅ Hospital Section -->
+<div id="hospitals" class="card-box dynamic-section" style="display: none;">
+  <h3>Our Hospital Network</h3>
+  <p>Rx Medo Card provides access to premium hospitals across India with exclusive benefits like discounts, priority appointments, and reduced waiting times.</p>
+
+  <div class="card-grid">
+    <!-- ✅ Key Stats -->
+    <div class="card-item">
+      <h4>⭐ 4 Star Partner Hospitals</h4>
+      <p>Trusted multi-specialty hospitals offering quality care and infrastructure.</p>
+    </div>
+    <div class="card-item">
+      <h4>💸 30% Average Savings</h4>
+      <p>Enjoy discounted rates on consultations, diagnostics, and treatments.</p>
+    </div>
+    <div class="card-item">
+      <h4>📞 24 Hour Support</h4>
+      <p>Get round-the-clock assistance for appointments and medical queries.</p>
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-top: 30px;">
+    <!-- ✅ Hospital Listings -->
+    
+    <div class="card-item">
+      <h4>🏥 MD City Hospital Sector 21, Noida, India</h4>
+      <p>Multi-specialty services and emergency care with priority access for Rx Medo Card holders.</p>
+      <div class="button-group">
+        <button class="btn view-services" id="viewMdCity">View Services</button>
+      </div>
+    </div>
+    
+    <!-- 🏥 Sarvodaya Hospital -->
+    <div class="card-item">
+      <h4>🏥 Sarvodaya Hospital Greater Noida, India</h4>
+      <p>Advanced medical facilities and experienced staff offering seamless care.</p>
+      <div class="button-group">
+        <button class="btn view-services" id="viewSarvodaya">View Services</button>
+      </div>
+    </div>
+    
+    <!-- 🏥 Felix Hospital -->
+    <div class="card-item">
+      <h4>🏥 Felix Hospital Sector-137, Noida, Uttar Pradesh 201305</h4>
+      <p>Comprehensive healthcare services with modern infrastructure and support.</p>
+      <div class="button-group">
+        <button class="btn view-services" id="viewFelix">View Services</button>
+      </div>
+    </div>
+    
+    <!-- 🏥 Max Hospital -->
+    <div class="card-item">
+      <h4>🏥 Max Hospital Saket Institutional Area, Saket, New Delhi 110017</h4>
+      <p>Specialized treatments and priority appointments for Rx Medo Card members.</p>
+      <div class="button-group">
+        <button class="btn view-services" id="viewMax">View Services</button>
+      </div>
+    </div>
+    
+    <!-- 💬 Universal Popup Template -->
+    <div id="hospitalPopup" class="popup-overlay">
+      <div class="popup-box">
+        <div class="popup-header">
+          <h2 id="popupHospitalName" style="color: white;">Hospital Name</h2>
+          <div class="popup-actions">
+            <div class="phone" id="popupPhone">📞 +91 00000 00000</div>
+            <button class="close-btn" id="closePopupBtn">&times;</button>
+          </div>
+        </div>
+    
+        <div class="popup-content" id="popupServicesList"></div>
+      </div>
+    </div>
+    
+    <!-- 💅 CSS -->
+    <style>
+      /* Overlay */
+      .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+    
+      /* Popup box */
+      .popup-box {
+        background: #f1f1f1;
+        color: #0c0909;
+        border-radius: 12px;
+        width: 85%;
+        max-width: 900px;
+        animation: fadeIn 0.3s ease;
+        overflow: hidden;
+      }
+    
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+    
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    
+      .popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #042c5c;
+        padding: 15px 25px;
+      }
+    
+      .popup-header h2 {
+        font-size: 20px;
+        margin: 0;
+      }
+    
+      .popup-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+    
+      .phone {
+        color: #8ec5ff;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    
+      .close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+    
+      .close-btn:hover {
+        color: #ff6961;
+      }
+    
+      .popup-content {
+        padding: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+    
+      .popup-content div {
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 6px;
+      }
+    
+      .btn {
+        background: #1d82e1;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+    
+      .btn:hover {
+        background: #1a96ee;
+      }
+    </style>
+    
+    <!-- ⚙ JavaScript -->
+    <script>
+      const popup = document.getElementById("hospitalPopup");
+      const popupName = document.getElementById("popupHospitalName");
+      const popupPhone = document.getElementById("popupPhone");
+      const popupList = document.getElementById("popupServicesList");
+      const closeBtn = document.getElementById("closePopupBtn");
+
+      const hospitals = {
+        "viewMdCity": {
+          name: "MD City Hospital ",
+          phone: "+91 7947116971",
+          services: [
+            "Obstetrics Problems",
+            "Cardiologist Consultation",
+            "Pediatric ENT Consultation",
+            "Wheel Chair Accessible Parking",
+            "Wheel Chair Accessible Entrance",
+            "Viral Fever Treatment",
+            "Heart Surgery"
+          ]
+        },
+        "viewSarvodaya": {
+          name: "Sarvodaya Hospital",
+          phone: "1800 313 1414",
+          services: [
+            "Institute of Robotic Surgery",
+            "Nephrology & Kidney Transplant",
+            "ENT & Cochlear Implant",
+            "Cancer Care",
+            "Neurosciences",
+            "Cardiology",
+            "Orthopaedics",
+            "Spine Surgery"
+          ]
+        },
+        "viewFelix": {
+          name: "Felix Hospital",
+          phone: "+91 96670 64100",
+          services: [
+            "Emergency and Trauma Care",
+            "Preventive Health Checkup",
+            "Ambulances",
+            "MRI",
+            "Laboratory Services",
+            "Radiodiagnosis Services",
+            "Blood Bank",
+            "E-clinic",
+            "Home Care Services",
+            "Pharmacy Services",
+            "Canteen"
+          ]
+        },
+        "viewMax": {
+          name: "Max Hospital Saket, New Delhi",
+          phone: "+91 92895 20303",
+          services: [
+            "Organ and Tissue Donation",
+            "Max Lab",
+            "Frequently Asked Questions",
+            "Max @ Home",
+            "Immigration Services",
+            "Preventive Health Checks",
+            "Air Ambulance Service",
+            "Ambulance Service",
+            "Insurance and TPA"
+          ]
+        }
+      };
+
+      // Open popup function
+      function openPopup(id) {
+        const hospital = hospitals[id];
+        popupName.textContent = hospital.name;
+        popupPhone.textContent = `${hospital.phone}`;
+        popupList.innerHTML = hospital.services.map(s => `<div>✔ ${s}</div>`).join("");
+        popup.style.display = "flex";
+      }
+
+      // Attach listeners
+      Object.keys(hospitals).forEach(id => {
+        document.getElementById(id).addEventListener("click", () => openPopup(id));
+      });
+
+      // Close popup
+      closeBtn.addEventListener("click", () => popup.style.display = "none");
+      window.addEventListener("click", e => { if (e.target === popup) popup.style.display = "none"; });
+    </script>
+  </div>
+</div>
+
+<!-- ✅ Payment History Section -->
+<div id="payment" class="card-box dynamic-section" style="display: none;">
+  <h3>Payment History</h3>
+  <div id="paymentList"></div>
+</div>
+<!-- 💊 Services Modal -->
+<div id="servicesModal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeServices()">&times;</span>
+    <h3>💊 Our Services</h3>
+    <ul>
+      <li> Discount upto 20–50% in Diagnostics and Laboratories</li>
+      <li> Discount upto 20–50% in OPD</li>
+      <li> Discount upto 20–22% in Pharmacy</li>
+      <li> Discount upto 10–20% in Hospital Operations (Eye, ENT, Dental, etc.)</li>
+      <li> Discount upto 10–20% in Short-Term Hospitalization</li>
+      <li> Discount upto 10–20% on Domiciliary/Home Nurses</li>
+      <li> Discount upto 10–20% on Purchase/Rental medical Devices</li>
+      <li> Discount upto 10–20% on Physio and other therapies</li>
+      <li> Free OPD in multiple hospitals</li>
+      <li> Free delivery of medicines and Free Ambulance</li>
+      <li> Online Free E-Consultation</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 🛡 RX Medo Insure Card Services Modal -->
+<div id="insureServicesModal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeInsureServices()">&times;</span>
+    <h3>🛡 Our Services</h3>
+    <ol>
+      <li><strong>Young India (18–35 Years)</strong>
+        <ul>
+          <li> Waiver of First Year Exclusion</li>
+          <li> Waiver of 30 Days Waiting Period</li>
+          <li> Waiver of First Two Year Exclusion</li>
+          <li> Cover for Pre-Existing Diseases</li>
+          <li> Insurance Coverage of ₹5 Lakhs & ₹50 Lakhs Accidental</li>
+          <li> Free Online Consultation with Empanelled Doctors</li>
+          <li> Long term discount upto 20% for 5 Years extension on this Insure card</li>
+        </ul>
+      </li>
+      <li><strong>Matured Individuals (36–50 Years)</strong>
+        <ul>
+          <li>Add Family Members to This Card</li>
+        </ul>
+      </li>
+      <li><strong>Senior Citizens (50+ Years)</strong>
+        <ul>
+          <li> Free Home Medication Services</li>
+        </ul>
+      </li>
+    </ol>
+    <ul>
+      <li><strong>Includes all benefits of RX Medo Card</strong></li>
+      <li><em>* Not applicable for Corporate Insurance card holders</em></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+  <!-- ✅ External JS -->
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+
+  <!-- ✅ External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ External Script for Terms Modal -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ✅ Signup Container -->
+  <div class="signup-wrapper">
+    <div class="signup-box">
+
+      <!-- ✅ Heading Section -->
+      <div class="signup-header text-center">
+        <h2>Sign Up</h2>
+        <p>Please signup first to apply for any RX Medo card.</p>
+      </div>
+
+      <!-- ✅ Signup Form -->
+      <form id="signupForm" method="POST" action="signup.php" onsubmit="showTerms(event)">
+        
+       <!-- ✅ Name, Email & Phone -->
+<div class="form-row">
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required
+           pattern="[A-Za-z\s]+" title="Name should contain only alphabets.">
+  </div>
+  <div class="form-group">
+    <label for="mail">Email</label>
+    <input type="email" id="mail" name="mail" placeholder="example@gmail.com" required
+           title="Please enter a valid email address.">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required
+           pattern="\d{10}" maxlength="10" title="Phone number must be exactly 10 digits.">
+  </div>
+</div>
+
+
+
+       <!-- ✅ Password & Aadhaar -->
+<div class="form-row">
+  <div class="form-group">
+    <label for="pass">Password</label>
+    <input type="password" id="pass" name="pass" required
+           title="Password cannot be blank.">
+  </div>
+  <div class="form-group">
+    <label for="aadhaar_card_no">Aadhaar Card No</label>
+    <input type="text" id="aadhaar_card_no" name="aadhaar_card_no"
+           placeholder="12-digit Aadhaar" required
+           pattern="\d{12}" maxlength="12"
+           title="Aadhaar number must be exactly 12 digits.">
+  </div>
+</div>
+
+        <!-- ✅ Aadhaar Front (Optional) -->
+<div class="form-group">
+  <label for="aadhaar_front">Upload Aadhaar Front (optional)</label>
+  <input type="file" name="aadhaar_front" id="aadhaar_front" accept="image/*">
+</div>
+
+<!-- ✅ Aadhaar Back (Optional) -->
+<div class="form-group">
+  <label for="aadhaar_back">Upload Aadhaar Back (optional)</label>
+  <input type="file" name="aadhaar_back" id="aadhaar_back" accept="image/*">
+</div>
+
+<!-- ✅ PAN Card Photo (Optional) -->
+<div class="form-group">
+  <label for="pan_card_photo">Upload PAN Card Photo (optional)</label>
+  <input type="file" name="pan_card_photo" id="pan_card_photo" accept="image/*">
+</div>
+
+
+        <!-- ✅ PAN Card -->
+<div class="form-row">
+  <div class="form-group">
+    <label for="pan_card_no">PAN Card No</label>
+    <input type="text" id="pan_card_no" name="pan_card_no"
+           placeholder="ABCDE1234F" required
+           pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+           title="PAN must be 10 characters: 5 uppercase letters, 4 digits, 1 uppercase letter.">
+  </div>
+</div>
+
+
+        <!-- ✅ Card Selection -->
+<div class="form-group">
+  <label>Select Your Card:</label>
+  <div class="radio-group">
+
+    <!-- ✅ RX Medo Card with Family Toggle -->
+<li>
+  <label>
+    <input type="radio" name="card_type" value="RX Medo Card" id="rxMedoCardRadio" required>
+    RX Medo Card
+  </label>
+
+  <!-- ✅ RX Medo Card Family Opt Section -->
+  <div id="rxMedoFamilySection" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <label>Want to opt for your family?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="rxmedo_card_family_opt" value="Individual"> Individual</label><br>
+      <label><input type="radio" name="rxmedo_card_family_opt" value="Family"> Family</label>
+    </div>
+  </div>
+
+  <!-- ✅ RX Medo Card Family Members (6 options) -->
+  <div id="rxMedoFamilyMembers" style="display: none; margin-left: 40px;">
+    <label>Select Family Members:</label>
+    <div class="radio-group">
+      <label><input type="radio" name="rxmedo_card_family_members" value="1 spouse 1 child"> Spouse 1 Child</label><br>
+      <label><input type="radio" name="rxmedo_card_family_members" value="1 spouse 2 child"> Spouse 2 Child</label><br>
+      <label><input type="radio" name="rxmedo_card_family_members" value="only spouse"> Only Spouse</label><br>
+      <label><input type="radio" name="rxmedo_card_family_members" value="mother and father"> Mother and Father</label><br>
+      <label><input type="radio" name="rxmedo_card_family_members" value="mother"> Only Mother</label><br>
+      <label><input type="radio" name="rxmedo_card_family_members" value="father"> Only Father</label>
+    </div>
+  </div>
+</li>
+
+  <!-- ✅ RX Medo Insure Card -->
+<li>
+  <label>
+    <input type="radio" name="card_type" value="RX Medo Insure Card" id="insureCardRadio">
+    RX Medo Insure Card
+  </label>
+
+  <!-- ✅ Age Group Options -->
+  <div id="ageGroupSection" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <label>Select Your Age Group:</label>
+    <div class="radio-group">
+      <label><input type="radio" name="age_group" value="Young India (18-35)"> Young India (18–35)</label><br>
+      <label><input type="radio" name="age_group" value="Mature Individual (36-50)"> Mature Individual (36–50)</label><br>
+      <label><input type="radio" name="age_group" value="Senior Citizens (51+)"> Senior Citizens (51+)</label>
+    </div>
+  </div>
+
+  <!-- ✅ Young India Flow -->
+  <div id="youngIndiaFlow" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <label>Want to opt for your family?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="family_opt" value="Individual"> Individual</label><br>
+      <label><input type="radio" name="family_opt" value="Family"> Family</label>
+    </div>
+
+    <!-- ✅ Describe Age Section -->
+    <div id="describeAgeSection" style="display: none; margin-top: 8px;">
+      <label>Describe your age:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="describe_age" value="Below 25"> Below 25</label><br>
+        <label><input type="radio" name="describe_age" value="Above 25"> Above 25</label>
+      </div>
+    </div>
+
+    <!-- ✅ Family Members for Below 25 -->
+    <div id="membersBelow25" style="display: none; margin-left: 20px;">
+      <label>Select Family Members:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_members_selected" value="1 spouse 1 child"> Spouse 1 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="1 spouse 2 child"> Spouse 2 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="only spouse"> Only Spouse</label><br>
+        <label><input type="radio" name="family_members_selected" value="mother and father"> Mother and Father</label><br>
+        <label><input type="radio" name="family_members_selected" value="mother"> Only Mother</label><br>
+        <label><input type="radio" name="family_members_selected" value="father"> Only Father</label>
+      </div>
+    </div>
+
+    <!-- ✅ Family Members for Above 25 -->
+    <div id="membersAbove25" style="display: none; margin-left: 20px;">
+      <label>Select Family Members:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_members_selected" value="1 spouse 1 child"> Spouse 1 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="1 spouse 2 child"> Spouse 2 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="only spouse"> Only Spouse</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Mature Individual Flow -->
+  <div id="matureFlow" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <label>Want to opt for your family?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="mature_family_opt" value="Individual"> Individual</label><br>
+      <label><input type="radio" name="mature_family_opt" value="Family"> Family</label>
+    </div>
+
+    <!-- ✅ Family Members for Mature Individual -->
+    <div id="matureFamilyMembers" style="display: none; margin-left: 20px; margin-top: 8px;">
+      <label>Select Family Members:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_members_selected" value="1 spouse 1 child"> Spouse 1 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="1 spouse 2 child"> Spouse 2 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="only spouse"> Only Spouse</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Senior Citizens Flow -->
+  <div id="seniorFlow" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <label>Want to opt for your family?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="mature_family_opt" value="Individual"> Individual</label><br>
+      <label><input type="radio" name="mature_family_opt" value="Family"> Family</label>
+    </div>
+
+    <!-- ✅ Family Members for Senior Citizens -->
+    <div id="seniorFamilyMembers" style="display: none; margin-left: 20px; margin-top: 8px;">
+      <label>Select Family Members:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_members_selected" value="1 spouse 1 child"> Spouse 1 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="1 spouse 2 child"> Spouse 2 Child</label><br>
+        <label><input type="radio" name="family_members_selected" value="only spouse"> Only Spouse</label>
+      </div>
+    </div>
+  </div>
+</li>
+
+<!-- ✅ RX Medo Insure Top Up Card -->
+<li>
+  <label>
+    <input type="radio" name="card_type" value="RX Medo Insure Top Up Card" id="rxInsureTopUpCard">
+    RX  Insure Top Up Card
+  </label>
+
+  <!-- ✅ Insurance Detail Section -->
+  <div id="rxInsureTopUpSection" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <p><strong>This card is only applied for those who have existing insurance.</strong><br>
+    Please enter your existing insurance details:</p>
+
+    <!-- ✅ Upload Field -->
+    <label>Upload existing insurance card’s /Policy's photo:</label><br>
+    <input type="file" id="insuranceCardUpload" accept="image/*"><br><br>
+
+    <!-- ✅ Upgrade Options -->
+    <div id="upgradeOptions" style="display: none;">
+      <label>Select Upgrade Amount:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="upgrade_amount" value="6 Lakh"> Upgraded to ₹6 Lakh</label><br>
+        <label><input type="radio" name="upgrade_amount" value="10 Lakh"> Upgraded to ₹10 Lakh</label><br>
+        <label><input type="radio" name="upgrade_amount" value="15 Lakh"> Upgraded to ₹15 Lakh</label><br>
+        <label><input type="radio" name="upgrade_amount" value="20 Lakh"> Upgraded to ₹20 Lakh</label>
+      </div>
+    </div>
+  </div>
+</li>
+
+<!<!-- ✅ RX Medo Top Up Card -->
+<div class="card-option" style="margin-bottom: 10px;">
+  <label>
+    <input type="radio" name="card_type" value="RX Medo Top Up Card" id="rxMedoTopUpCard" required>
+    RX Medo Insure Top Up Card
+  </label>
+
+  <!-- ✅ RX Medo Top Up Section -->
+  <div id="rxMedoTopUpSection" style="display: none; margin-left: 20px; margin-top: 8px;">
+    <p><strong>This card is only for users who already have insurance.</strong><br>
+    Please upload your existing insurance card or policy:</p>
+
+    <!-- ✅ Upload Field -->
+    <label>Upload Insurance Card / Policy Photo:</label><br>
+    <input type="file" name="insurance_card_photo" id="rxMedoTopUpUpload" accept="image/*"><br><br>
+
+    <!-- ✅ Family Opt Toggle -->
+    <label>Want to opt for your family?</label>
+    <div class="radio-group" style="margin-left: 20px;">
+      <label><input type="radio" name="rxmedo_topup_family_opt" value="Individual"> Individual</label><br>
+      <label><input type="radio" name="rxmedo_topup_family_opt" value="Family"> Family</label>
+    </div>
+
+    <!-- ✅ Family Members (6 options) -->
+    <div id="rxMedoTopUpFamilyMembers" style="display: none; margin-left: 40px; margin-top: 10px;">
+      <label>Select Family Members:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="rxmedo_topup_family_members" value="1 spouse 1 child"> Spouse 1 Child</label><br>
+        <label><input type="radio" name="rxmedo_topup_family_members" value="1 spouse 2 child"> Spouse 2 Child</label><br>
+        <label><input type="radio" name="rxmedo_topup_family_members" value="only spouse"> Only Spouse</label><br>
+        <label><input type="radio" name="rxmedo_topup_family_members" value="mother and father"> Mother and Father</label><br>
+        <label><input type="radio" name="rxmedo_topup_family_members" value="mother"> Only Mother</label><br>
+        <label><input type="radio" name="rxmedo_topup_family_members" value="father"> Only Father</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- ✅ Submit Button -->
+<button type="submit" class="btn-submit">Submit</button>
+</form>
+
+<!-- ✅ Login Prompt -->
+<p class="login-prompt">
+  Already have an account? <a href="login.html">Login here</a>
+</p>
+</div>
+</div>
+
+<!-- ✅ Terms Modal -->
+<div id="termsModal">
+  <h3>Terms and Conditions</h3>
+  <ul>
+    <li>Not Applicable if already a part of corporate insurance or group insurance.</li>
+  </ul>
+  <label><input type="checkbox" id="agree"> I agree to these conditions</label><br><br>
+  <button onclick="acceptTerms()">Proceed</button>
+  <button onclick="closeModal()">Cancel</button>
+</div>

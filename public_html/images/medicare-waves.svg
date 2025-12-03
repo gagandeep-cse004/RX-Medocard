@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="1000" viewBox="0 0 1440 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vertical lines -->
+  <g stroke="#e1f3f8" stroke-width="1" opacity="0.2">
+    <line x1="100" y1="0" x2="100" y2="1000" />
+    <line x1="300" y1="0" x2="300" y2="1000" />
+    <line x1="500" y1="0" x2="500" y2="1000" />
+    <line x1="700" y1="0" x2="700" y2="1000" />
+    <line x1="900" y1="0" x2="900" y2="1000" />
+    <line x1="1100" y1="0" x2="1100" y2="1000" />
+    <line x1="1300" y1="0" x2="1300" y2="1000" />
+  </g>
+  
+  <!-- Wave 1 -->
+  <path d="M0,160 C320,100 420,300 720,240 C1020,180 1120,300 1440,240 L1440,0 L0,0 Z" 
+        fill="#ffffff" fill-opacity="0.05" />
+  
+  <!-- Wave 2 -->
+  <path d="M0,400 C320,340 420,540 720,480 C1020,420 1120,540 1440,480 L1440,0 L0,0 Z" 
+        fill="#ffffff" fill-opacity="0.03" />
+  
+  <!-- Wave 3 -->
+  <path d="M0,640 C320,580 420,780 720,720 C1020,660 1120,780 1440,720 L1440,0 L0,0 Z" 
+        fill="#ffffff" fill-opacity="0.02" />
+  
+  <!-- Wave 4 -->
+  <path d="M0,880 C320,820 420,1020 720,960 C1020,900 1120,1020 1440,960 L1440,0 L0,0 Z" 
+        fill="#ffffff" fill-opacity="0.01" />
+</svg>

@@ -1,0 +1,49 @@
+/* _content/RxMedoWeb/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-kr65r3xkkp] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-kr65r3xkkp] {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-primary[b-kr65r3xkkp] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-kr65r3xkkp], .nav-pills .show > .nav-link[b-kr65r3xkkp] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-kr65r3xkkp] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-kr65r3xkkp] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-kr65r3xkkp] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-kr65r3xkkp] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-kr65r3xkkp] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

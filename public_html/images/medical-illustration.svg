@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Medical Illustration -->
+    <defs>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#001d4f;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background Circle -->
+    <circle cx="300" cy="200" r="150" fill="url(#grad2)" opacity="0.1"/>
+    
+    <!-- Medical Icons -->
+    <!-- Stethoscope -->
+    <path d="M250,150 C270,150 280,160 280,180 L280,220 C280,240 300,250 320,250 C340,250 360,240 360,220 L360,200" 
+          fill="none" stroke="#001d4f" stroke-width="8"/>
+    <circle cx="360" cy="180" r="15" fill="#4a90e2"/>
+    
+    <!-- Pills -->
+    <ellipse cx="200" cy="250" rx="20" ry="10" fill="#ef476f"/>
+    <ellipse cx="400" cy="250" rx="20" ry="10" fill="#28a745"/>
+    
+    <!-- Heart Rate Line -->
+    <path d="M150,200 L200,200 L225,150 L250,250 L275,150 L300,200 L350,200"
+          fill="none" stroke="#ef476f" stroke-width="4"/>
+    
+    <!-- Cross Symbol -->
+    <rect x="285" y="100" width="30" height="30" fill="#001d4f"/>
+    <rect x="295" y="105" width="10" height="20" fill="#fff"/>
+    <rect x="290" y="110" width="20" height="10" fill="#fff"/>
+</svg>

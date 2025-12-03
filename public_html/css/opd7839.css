@@ -1,0 +1,503 @@
+:root {
+    /* Dark Blue Healthcare Color Palette */
+    --primary-color: #001d4f;      /* Dark Blue (Hero) */
+    --secondary-color: #002d77;    /* Slightly Lighter Blue */
+    --accent-color: #0056b3;       /* Medium Blue */
+    --accent-secondary: #4a90e2;   /* Light Blue */
+    --accent-tertiary: #6c63ff;    /* Purple */
+    --success-color: #28a745;      /* Green */
+    --info-color: #17a2b8;         /* Teal */
+    --warning-color: #ffc107;      /* Yellow */
+    --danger-color: #dc3545;       /* Red */
+    --light-color: #f8f9fa;        /* Light Gray */
+    --dark-color: #001d4f;         /* Dark Blue */
+    --text-color: #333333;         /* Dark Gray */
+    --text-muted: #6c757d;         /* Medium Gray */
+    --card-bg: #FFFFFF;            /* White */
+    --border-radius: 12px;         /* Rounded corners */
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);  /* Shadow */
+}
+
+body {
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
+.text-accent {
+    color: var(--accent-secondary) !important;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.opd-hero {
+    background-color: #001d4f;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0;
+    border-radius: 0 0 50px 50px;
+    margin-top: 0;
+}
+
+.opd-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    text-align: left;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 100%;
+    text-align: left;
+}
+
+.hero-image-container {
+    position: relative;
+
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-image-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.3) 0%, rgba(0, 29, 79, 0) 70%);
+    z-index: -1;
+    filter: blur(30px);
+}
+
+.hero-image {
+    max-height: 430px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+    animation: float 6s ease-in-out infinite;
+    transform-origin: center center;
+    object-fit: contain;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Steps Section */
+.steps-section {
+    padding: 5rem 0;
+    background-color: #fff;
+}
+
+.step-card {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 29, 79, 0.1);
+}
+
+.step-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #0056b3 0%, #001d4f 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 29, 79, 0.2);
+}
+
+.step-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.step-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* About Section */
+.about-section {
+
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.about-content {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: var(--box-shadow);
+}
+
+.about-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.about-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Services Section */
+.services-section {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.service-card {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 29, 79, 0.1);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0.1) 0%, rgba(0, 29, 79, 0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.service-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Departments Section */
+.departments-section {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.department-item {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent-color);
+}
+
+.department-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 20px rgba(0, 29, 79, 0.1);
+}
+
+.department-item i {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #001d4f 0%, #002d77 100%);
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 29, 79, 0.2);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, #4a90e2 0%, #6c63ff 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.2);
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styles */
+@media (min-width: 769px) and (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        max-width: 100%;
+    }
+
+    .service-title {
+        font-size: 1.3rem;
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .opd-hero {
+        padding: 3rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        text-align: center;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image-container {
+        margin: 2rem auto 0;
+        max-width: 80%;
+        height: auto;
+    }
+
+    .hero-image {
+        max-height: 300px;
+    }
+
+    .opd-hero .btn {
+        margin: 0.5rem 0.25rem;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        display: inline-block;
+    }
+
+    .opd-hero .mt-4 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-title {
+        font-size: 1.5rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .service-card, .step-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+        font-size: 1.5rem;
+    }
+
+    .step-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .opd-hero .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .opd-hero .mt-4 {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .service-title, .step-title {
+        font-size: 1.3rem;
+    }
+
+    .service-card .btn, .about-content .btn {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .department-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animate.css overrides */
+.animate__animated {
+    animation-duration: 1s;
+}

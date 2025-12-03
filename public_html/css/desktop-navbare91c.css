@@ -1,0 +1,85 @@
+/**
+ * Desktop Navbar Styles for RX MEDO CARD
+ * This file provides styling for the desktop navbar
+ */
+
+/* Desktop-only styles */
+@media (min-width: 992px) {
+    /* Hide navbar toggler in desktop view */
+    .navbar-toggler {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    /* Navbar container */
+    .navbar {
+        padding: 0.5rem 1rem !important;
+    }
+
+    /* Nav items */
+    .navbar-nav {
+        gap: 0.5rem !important;
+    }
+
+    .navbar-nav .nav-item {
+        position: relative !important;
+    }
+
+    .navbar-nav .nav-link {
+        color: #001d4f !important;
+        font-weight: 500 !important;
+        padding: 0.5rem 1rem !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #ef476f !important;
+        background-color: rgba(239, 71, 111, 0.05) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .navbar-nav .nav-link.active {
+        color: #ef476f !important;
+        font-weight: 600 !important;
+        background-color: rgba(239, 71, 111, 0.1) !important;
+    }
+
+    /* Underline effect */
+    .navbar-nav .nav-link::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 2px !important;
+        background-color: #ef476f !important;
+        transition: all 0.3s ease !important;
+        transform: translateX(-50%) !important;
+        opacity: 0 !important;
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+        width: 80% !important;
+        opacity: 1 !important;
+    }
+
+    /* Get Card Button */
+    .get-card-btn {
+        background-color: #ef476f !important;
+        color: white !important;
+        padding: 0.5rem 1.5rem !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 10px rgba(239, 71, 111, 0.3) !important;
+    }
+
+    .get-card-btn:hover {
+        background-color: #d63e63 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 15px rgba(239, 71, 111, 0.4) !important;
+    }
+}

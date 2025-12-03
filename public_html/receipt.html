@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Receipt</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .receipt-box {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .receipt-box img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .receipt-box h2 {
+      color: #141e5d;
+      margin-bottom: 20px;
+    }
+
+    .receipt-box p {
+      font-size: 16px;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .status {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+      font-size: 18px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="receipt-box">
+    <!-- ✅ Tree logo -->
+    <img src="treelogo.jpg" alt="RX Medocard Logo" />
+
+    <h2>Payment Receipt</h2>
+
+    <p><strong>Name:</strong> BRINATINA M</p>
+    <p><strong>Selected Card:</strong> RX Medo Insure Card</p>
+    <p><strong>Card Type:</strong> Health Insurance</p>
+    <p><strong>Validity:</strong> 2023-05-19 to 2024-05-19</p>
+
+    <div class="status">✅ Payment Status: Payment Done</div>
+
+    <div class="footer">Thank you for choosing RX Medo Services</div>
+  </div>
+
+</body>
+</html>

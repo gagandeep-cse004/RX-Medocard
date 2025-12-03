@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Challenge 2025 | RX MedoCard</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0a0e27;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ================= ANIMATED BACKGROUND ================= */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      overflow: hidden;
+    }
+
+    .animated-bg::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 111, 97, 0.3), transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(253, 187, 45, 0.2), transparent 50%);
+      animation: bgMove 15s ease-in-out infinite;
+    }
+
+    @keyframes bgMove {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-50px, -50px) rotate(180deg); }
+    }
+
+    /* ================= FLOATING PARTICLES ================= */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+    }
+
+    /* ================= NAVIGATION BAR ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 12, 41, 0.9);
+      backdrop-filter: blur(20px);
+      padding: 15px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ffeb3b, #ff6f00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ffeb3b, #ff6f00);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 120px 10% 80px;
+      gap: 40px;
+      position: relative;
+    }
+
+    .hero-left {
+      flex: 1;
+      min-width: 300px;
+      animation: fadeInLeft 1s ease;
+    }
+
+    .hero-left h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffeb3b, #ff6f00, #ffeb3b);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      animation: gradientText 3s ease infinite;
+    }
+
+    @keyframes gradientText {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-left p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #e0e0e0;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .hero-right {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeInRight 1s ease;
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ================= ENHANCED CARDS ================= */
+    .card-hero {
+      background: rgba(206, 62, 62, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 235, 59, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card-hero:hover::before {
+      opacity: 1;
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .card-hero:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(255, 235, 59, 0.3);
+      border-color: rgba(255, 235, 59, 0.5);
+    }
+
+    .card-hero i {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #ffeb3b, #ff6f00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .card-hero h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .card-hero p {
+      color: white;  
+      line-height: 1.6;
+    }
+
+    /* ================= RECTANGLE CARD (JOB OPPORTUNITY) ================= */
+    .rectangle-card {
+      background: linear-gradient(135deg, #ff6a00, #ffb347);
+      border-radius: 20px;
+      padding: 35px;
+      margin-top: 30px;
+      box-shadow: 0 15px 40px rgba(255, 106, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rectangle-card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .card-icon {
+      font-size: 3.5rem;
+      color: #ffd700;
+      margin-bottom: 15px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .rectangle-card h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .rectangle-card p {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .rectangle-card p i {
+      color: #ffd700;
+      font-size: 1.3rem;
+    }
+
+    /* ================= MISSION SECTION ================= */
+    .mission {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 60px 40px;
+      margin: 80px 10%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mission:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0, 198, 255, 0.2);
+    }
+
+    .mission h2 {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      background: linear-gradient(90deg, hsl(125, 67%, 44%), #0ed325d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 25px;
+    }
+
+    .mission p {
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #e0e0e0;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ================= FEATURES SECTION ================= */
+    .features-section {
+      padding: 80px 10%;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .features-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .features-heading h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      background: linear-gradient(90deg,hsl(125, 67%, 44%), #0ed325d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
+
+    .features-heading p {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      color: #b0b0b0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .features-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    .features-image {
+      flex: 1;
+       margin-top: 80px;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .features-image img {
+      width: 100%;
+      height: auto;
+     
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .features-image img:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 30px 80px rgba(74, 144, 226, 0.4);
+    }
+
+    .features-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 550px;
+    }
+
+    .features-content h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: lightblue;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .features-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features-content li {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: #d0d0d0;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      margin-bottom: 15px;
+      padding: 18px 20px;
+      border-radius: 15px;
+      border-left: 4px solid #4a90e2;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features-content li::before {
+      content: "✓";
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: #4a90e2;
+      transition: left 0.3s ease;
+    }
+
+    .features-content li:hover {
+      transform: translateX(10px);
+      background: rgba(74, 144, 226, 0.1);
+      border-left-color: yellow;
+      padding-left: 40px;
+    }
+
+    .features-content li:hover::before {
+      left: 15px;
+    }
+
+    /* ================= PARTICIPATE SECTION ================= */
+    .participate {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .participate h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      background: linear-gradient(90deg, #ffeb3b, #ff6f00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 50px;
+      font-weight: 800;
+    }
+
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 20px 60px rgba(255, 235, 59, 0.3);
+      border-color: rgba(255, 235, 59, 0.5);
+    }
+    
+
+    .card i {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #ffeb3b, #ff6f00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      display: block;
+    }
+     .card h1 {
+      font-size: 1.8rem;
+      color:white;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+
+    .card p {
+      color: #d0d0d0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* ================= STRATEGIST SECTION ================= */
+    .strategist {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 80px 10%;
+    }
+
+    .strategist img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 25px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+      transition: all 0.5s ease;
+    }
+
+    .strategist img:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 30px 90px rgba(0, 198, 255, 0.4);
+    }
+
+    .strategist-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+
+    .strategist-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .strategist-content ul {
+      list-style: none;
+    }
+
+    .strategist-content li {
+      margin: 20px 0;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: #d0d0d0;
+      padding-left: 40px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .strategist-content li i {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: #ffeb3b;
+      font-size: 1.3rem;
+    }
+
+    .strategist-content li:hover {
+      color: #fff;
+      padding-left: 50px;
+    }
+
+    /* ================= JOURNEY/TIMELINE SECTION ================= */
+    .journey {
+      background: linear-gradient(135deg, rgba(40, 60, 134, 0.3), rgba(69, 162, 71, 0.3));
+      padding: 80px 10%;
+    }
+
+    .journey h2 {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: #fff;
+      margin-bottom: 60px;
+      font-weight: 800;
+    }
+
+   
+ .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      background: linear-gradient(180deg, #ffeb3b, #ff6f00);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+     
+    }
+
+    .container {
+      padding: 20px 50px;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      animation: fadeInTimeline 0.6s ease forwards;
+    }
+
+    @keyframes fadeInTimeline {
+      to { opacity: 1; }
+    }
+
+    .container:nth-child(1) { animation-delay: 0.2s; }
+    .container:nth-child(2) { animation-delay: 0.4s; }
+    .container:nth-child(3) { animation-delay: 0.6s; }
+    .container:nth-child(4) { animation-delay: 0.8s; }
+
+    .container.left {
+      left: 0;
+      text-align: left;
+     
+    }
+
+    .container.right {
+      left: 50%;
+      text-align: left;   
+      
+    }
+
+    .container::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: #ffeb3b;
+      top: 22px;
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(255, 235, 59, 0.8);
+      border: 4px solid #0a0e27;
+    }
+
+    .left::after {
+      right: -13px;
+    }
+
+    .right::after {
+      left: -13px;
+    }
+
+    .text-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .text-box:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: scale(1.05);
+      box-shadow: 0 10px 40px rgba(255, 235, 59, 0.2);
+    }
+
+    .text-box h3 {
+      color: #ffeb3b;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .text-box p {
+      color: #e0e0e0;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    /* ================= KEY DATES SECTION ================= */
+   .dates {
+  background: linear-gradient(135deg, rgba(30, 60, 114, 0.5), rgba(42, 82, 152, 0.5));
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.dates h2 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  background: linear-gradient(90deg, #ffeb3b, #ff6f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Grid layout for 3 + 2 cards centered */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  justify-items: center; /* centers 2nd-row cards */
+}
+
+/* Each card same size */
+.date-card {
+  width: 100%;
+  max-width: 320px; /* fixed uniform width */
+  height: 260px;    /* equal height for all cards */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.date-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffeb3b, #ff6f00);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.date-card:hover::before {
+  transform: scaleX(1);
+}
+
+.date-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255, 235, 59, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Titles and text */
+.date-card h3 {
+  font-size: 1.6rem;
+  color: #ffeb3b;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.date-card p {
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+/* Center only the last two cards */
+.date-card:nth-child(4),
+.date-card:nth-child(5) {
+  grid-column: auto;           /* allow normal flow */
+  justify-self: center;        /* center each card */
+   margin-left: 340px; 
+}
+
+.date-card:nth-child(4) {
+  grid-column-start: 1;        /* starts in middle column */
+}
+
+.date-card:nth-child(5) {
+  grid-column-start: 2;        /* right beside the 4th card */
+}
+
+/* Center the entire row */
+.date-grid {
+  display: grid;
+  justify-content: center;     /* centers the group */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+
+/* Responsive layout */
+@media (max-width: 992px) {
+  .date-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Make nth-child(4) and nth-child(5) responsive */
+@media (max-width: 992px) {
+  .date-card:nth-child(4),
+  .date-card:nth-child(5) {
+    margin-left: 0;
+    justify-self: center;
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .date-card:nth-child(4),
+  .date-card:nth-child(5) {
+    margin-left: 0;
+    grid-column: auto;
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .date-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    /* ================= REGISTER BUTTON ================= */
+    .register-btn {
+      display: inline-block;
+      padding: 18px 50px;
+      background: linear-gradient(135deg, #ffeb3b, #ff6f00);
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(255, 235, 59, 0.4);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .register-btn::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .register-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .register-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 50px rgba(255, 235, 59, 0.6);
+    }
+
+    .register-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* ================= POPUP FORM ================= */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .popup {
+      background: linear-gradient(135deg, rgba(66, 39, 90, 0.95), rgba(115, 75, 109, 0.95));
+      backdrop-filter: blur(20px);
+      padding: 40px;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      animation: popupSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popupSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 0, 0, 0.7);
+      transform: rotate(90deg);
+    }
+
+    .popup h2 {
+      margin-bottom: 30px;
+      color: #ffeb3b;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .popup label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: #c8c8c8;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .popup input,
+    .popup textarea,
+    .popup select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #080808;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .popup input:focus,
+    .popup textarea:focus,
+    .popup select:focus {
+      border-color: #ffeb3b;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(255, 235, 59, 0.3);
+    }
+
+    .popup textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .popup select {
+      cursor: pointer;
+    }
+
+    .popup button[type="submit"] {
+      width: 100%;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #ffeb3b, #ff6f00);
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .popup button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 235, 59, 0.5);
+    }
+
+    
+    #thankYouMessage {
+      text-align: center;
+      padding: 30px;
+    }
+
+    #thankYouMessage h3 {
+      color: #4caf50;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    #thankYouMessage p {
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    #thankYouMessage button {
+      background: linear-gradient(135deg, #4caf50, #45a247);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #thankYouMessage button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
+      padding: 40px 20px;
+      font-size: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer p {
+      margin: 10px 0;
+      color: #b0b0b0;
+    }
+
+    footer a {
+      color: #00c6ff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+    }
+
+    /* ================= SCROLL TO TOP BUTTON ================= */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ffeb3b, #ff6f00);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(255, 235, 59, 0.4);
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 235, 59, 0.6);
+    }
+
+    .scroll-top i {
+      color: #000;
+      font-size: 1.5rem;
+    }
+
+    /* ================= MOBILE RESPONSIVE ================= */
+    @media (max-width: 992px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 250px;
+        background: rgba(15, 12, 41, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+        z-index: 1000;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(12px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-12px);
+      }
+
+      .hero {
+        padding: 100px 5% 60px;
+      }
+
+      .rectangle-card {
+        width: 100%;
+        margin: 30px 0;
+      }
+
+      .timeline::after {
+        left: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 20px;
+        text-align: left;
+      }
+
+      .container.right {
+        left: 0;
+      }
+
+      .container::after {
+        left: 17px;
+      }
+
+      .left::after {
+        right: auto;
+        left: 17px;
+      }
+
+      .mission,
+      .features-section,
+      .participate,
+      .strategist,
+      .journey,
+      .dates {
+        padding: 60px 5%;
+      }
+
+      .mission {
+        margin: 60px 5%;
+        padding: 40px 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 12px 5%;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .hero {
+        padding: 80px 5% 40px;
+      }
+
+      .card-hero {
+        padding: 25px;
+      }
+
+      .rectangle-card {
+        padding: 25px;
+      }
+
+      .card-icon {
+        font-size: 2.5rem;
+      }
+
+      .popup {
+        padding: 25px;
+        width: 95%;
+      }
+
+      .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
+      }
+
+      .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .date-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================= CUSTOM SCROLLBAR ================= */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0e27;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #ffeb3b, #ff6f00);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #ff6f00, #ffeb3b);
+    }
+
+    /* ================= LOADING ANIMATION ================= */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 5px solid rgba(255, 235, 59, 0.3);
+      border-top: 5px solid #ffeb3b;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    /* ================= NAVBAR STYLES ================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #004aad;
+  color: #fff;
+  padding: 15px 8%;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  width: 45px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.brand-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffeb3b;
+}
+
+/* ---------- Responsive navbar for mobile ---------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .nav-brand {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .brand-text {
+    font-size: 1.4rem;
+  }
+
+  .nav-logo {
+    width: 40px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader"></div>
+  </div>
+
+  <!-- ANIMATED BACKGROUND -->
+  <div class="animated-bg"></div>
+
+  <!-- FLOATING PARTICLES -->
+  <div class="particles" id="particles"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <img src="images/white logo.png" alt="RX MedoCard Logo" class="nav-logo">
+    <span class="brand-text">Rx MedoCard</span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#participate">Participate</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#dates">Dates</a></li>
+  </ul>
+</nav>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <h1>Marketing Challenge 2025</h1>
+      <p>Lead. Create. Inspire.<br>Showcase your marketing and leadership skills in India's most dynamic live competition by <strong>RX Medical Trust.</strong>
+    <p>A live project competition by Rx Medical Trust for aspiring marketing leaders across Ghaziabad/Greater Noida/Noida.</p>
+
+      <div class="card-hero rectangle-card">
+        <div class="card-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h2>Champion Team Rewards</h2>
+        <p><i class="fas fa-briefcase"></i> Exclusive Job Opportunities Await</p>
+        <p><i class="fas fa-coins"></i> Attractive Package: <strong>Up to 15 Lakhs</strong></p>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="card-hero prize-card">
+        <i class="fa-solid fa-trophy"></i>
+        <h2>Grand Prize: ₹10,00,000</h2>
+        <p>Win MacBooks, iPhones & exclusive rewards. Be the face of innovation — the spotlight awaits you!</p>
+      </div>
+
+      <div class="card-hero leadership-card">
+        <i class="fa-solid fa-user-tie"></i>
+        <h2>Leadership Skills</h2>
+        <p>Motivate, manage, and inspire your team to achieve excellence and create real-world impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission" id="mission">
+    <h2><i class="fa-solid fa-bullseye"></i> Our Vision & Purpose</h2>
+    <p> To strategically design and execute a comprehensive marketing 
+plan aimed at the distribution and Membership of 3,000 
+MedoCards — an innovative initiative dedicated to enhancing 
+healthcare accessibility and awareness across the nation.
+ Through this initiative, we aim to empower individuals with easier 
+access to essential health information and services, bridging the 
+gap between communities and quality healthcare solutions. </p>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="features-heading">
+      <h1>Features We Provide</h1>
+      <p>We're committed to offering premium healthcare benefits and convenience for all our members.</p>
+    </div>
+
+    <div class="features-container">
+      <div class="features-image">
+        <img src="images/card-1.webp" alt="Our Healthcare Services">
+      </div>
+
+      <div class="features-content">
+        <h2>✨ Our Features</h2>
+        <ul>
+          <li>Discount up to 20–50% in Diagnostics and Laboratories</li>
+          <li>Discount up to 20–50% in OPD</li>
+          <li>Discount up to 20–22% in Pharmacy</li>
+          <li>Discount up to 10–20% on Physio and Other Therapies</li>
+          <li>Free OPD in Multiple Hospitals</li>
+          <li>Free Delivery of Medicines & Free Ambulance</li>
+          <li>Online Free E-Consultation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<section class="participate" id="participate">
+  <h2><i class="fa-solid fa-users"></i> Essential Rules & Guidelines</h2>
+  <div class="cards">
+    <div class="card">
+      <h1><i class="fa-solid fa-id-card-clip"></i> Data Verification Required</h1>
+      <p>All distributed and activated cards must be verifiable through our tracking system.</p>
+    </div>
+    <div class="card">
+      <h1><i class="fa-solid fa-scale-balanced"></i> Ethical Marketing Only</h1>
+      <p>Follow all legal guidelines — no forced registrations or deceptive practices.</p>
+    </div>
+    <div class="card">
+      <h1><i class="fa-solid fa-certificate"></i> Official Branding Mandatory</h1>
+      <p>Use only RX Medical Trust's official branding materials or approved content.</p>
+    </div>
+    <div class="card">
+      <h1><i class="fa-solid fa-lightbulb"></i> Creative Freedom Encouraged</h1>
+      <p>Collaborate with colleges, NGOs, and medical centers using creative digital strategies.</p>
+    </div>
+    <div class="card">
+      <h1><i class="fa-solid fa-file-shield"></i> Transparency & Audit</h1>
+      <p>The Trust reserves the right to audit all submitted data, materials, and activities.</p>
+    </div>
+    <div class="card">
+      <h1><i class="fa-solid fa-clock"></i> Within Time Frame</h1>
+      <p>All assigned tasks must be completed within the given timeline.</p>
+    </div>
+  </div>
+</section>
+
+</section>
+  <!-- PARTICIPATE -->
+  <section class="participate" id="participate">
+    <h2><i class="fa-solid fa-users"></i> Who Can Participate?</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-user-graduate"></i>
+        <h1>All College Students</h1>
+        <p>Open to students from every institution across Ghaziabad/Greater Noida/Noida.This is your platform to shine on a national stage.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-people-group"></i>
+        <h1>Solo or Team Entry</h1>
+        <p>Participate individually or form a team of 2-6 members. Cross-college teams are also welcomed and encouraged.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-user-tie"></i>
+        <h1>One Mentor allowed</h1>
+        <p>Each team can designate one mentor as the primary point of contact throughout the competition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIST -->
+  <section class="strategist">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Marketing Strategy">
+    <div class="strategist-content">
+      <h2><i class="fa-solid fa-rocket"></i> Your Mission as a Marketing Strategist</h2>
+      <ul>
+        <li><i class="fa-solid fa-lightbulb"></i> 
+            Create unique campaigns blending creativity with impact. Develop a comprehensive plan for MedoCard awareness and distribution.</li>
+        <li><i class="fa-solid fa-bullhorn"></i> Execute hybrid (online + offline) marketing initiatives. Create and launch integrated marketing campaign across multiple channels.</li>
+        <li><i class="fa-solid fa-handshake"></i> Build partnerships with NGOs and colleges. Establish credibility for Rx Medical Trust within targets communities.</li>
+        <li><i class="fa-solid fa-chart-line"></i> Achieve 3,000+ verified memberships for MedoCard.Drive measureable results with documented Medocard Registrations.</li>
+      </ul>
+    </div>
+  </section>
+  <title>Essential Rules & Guidelines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <!-- JOURNEY -->
+  <section class="journey" id="journey">
+    <h2><i class="fa-solid fa-road"></i> Competition Journey</h2>
+    <div class="timeline">
+      <div class="container left">
+        <div class="text-box">
+          <h3>Stage 1: Registration</h3>
+          <p>Submit team details and your <br> one-line mission statement through our portal.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="text-box">
+          <h3>Stage 2: Strategy Blueprint</h3>
+          <p>Submit a 4–6 page plan covering target audience, budget, and ROI.</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="text-box">
+          <h3>Stage 3: Live Execution</h3>
+          <p>Implement your campaign over 30 days and track results weekly.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="text-box">
+          <h3>Stage 4: Final Presentation</h3>
+          <p>Present your results to the RX Jury and win amazing rewards!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY EVENT DATES -->
+  <section class="dates" id="dates">
+    <h2><i class="fa-solid fa-calendar-days"></i> Key Event Dates</h2>
+    <div class="date-grid">
+      <div class="date-card">
+        <h3>10 Nov 2025</h3>
+        <p>Last Date for Registration</p>
+      </div>
+<div class="date-card">
+        <h3>11 Nov 2025</h3>
+        <p>Orientation Program about the challenge.</p>
+        
+      </div>
+      <div class="date-card">
+        <h3>20 Nov 2025</h3>
+        <p>Strategy Plan Submission</p>
+      </div>
+      <div class="date-card">
+        <h3>20 Dec 2025</h3>
+        <p>Execution Result Submission</p>
+      </div>
+      <div class="date-card">
+        <h3>25 Dec 2025</h3>
+        <p>Grand Finale & Awards</p>
+      </div>
+    </div>
+
+    <button class="register-btn" onclick="openForm()">Register Now</button>
+  </section>
+
+  <!-- POPUP REGISTRATION FORM -->
+  <div class="popup-overlay" id="popupForm">
+    <div class="popup">
+      <span class="close-btn" onclick="closeForm()">&times;</span>
+      <h2>Event Registration Form</h2>
+
+      <form id="eventForm">
+        <label>Full Name *</label>
+        <input type="text" name="name" required>
+
+        <label>WhatsApp Number *</label>
+        <input type="text" name="whatsapp" required>
+
+        <label>Email *</label>
+        <input type="email" name="email" required>
+
+        <label>College *</label>
+        <input type="text" name="college" required>
+
+        <label>Stream *</label>
+        <select name="stream" required>
+          <option value="" disabled selected>Select stream</option>
+          <option>BBA</option>
+          <option>MBA</option>
+        </select>
+
+        <label>Year of Passing *</label>
+        <input type="text" name="year" placeholder="e.g. 2026" required>
+
+        <label>Number of Members *</label>
+        <select name="members" required>
+          <option value="" disabled selected>Select number</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+
+        <label>Name of Team </label>
+        <input type="text" name="team">
+
+        <label>Mentor (if any)</label>
+        <input type="text" name="mentor">
+
+        <button type="submit">Submit</button>
+        <div class="success" id="successMsg"></div>
+        <div class="error" id="errorMsg"></div>
+      </form>
+
+      <!-- Thank You Message -->
+      <div id="thankYouMessage" style="display:none;">
+        <h3>🎉 Thank you for registering!</h3>
+        <p>Your response has been recorded successfully.</p>
+        <button onclick="closeForm()">Close</button>
+      </div>
+    </div>
+  </div>
+   <section class="dates" id="dates">
+    <h2>ARE YOU READY TO MAKE YOUR MARK?</h2>
+    </section>
+<!-- Floating Sticky Button -->
+ <a href="RX Medocardnlmc.pdf" style="cursor: pointer;margin-bottom: 100px;" class="floating-btn"
+      title="Go to Register Section">
+      <span>Download Brochure</span>
+    </a>
+<a onclick="openForm()" class="floating-btn" title="Go to Register Section">
+  <span>Join Marketing Challenge</span>
+</a>
+<style>
+    /* 🔹 Floating Sticky Button */
+.floating-btn {
+  position: fixed;
+  right: 25px;           /* change to left: 25px; if you want left side */
+  bottom: 30px;
+  background: linear-gradient(135deg, #ff8c00, #ff2e63);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 9999;         /* always on top */
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg, #ff2e63, #ff8c00);
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .floating-btn {
+    right: 15px;
+    bottom: 20px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+</style>
+  <!-- SCROLL TO TOP BUTTON -->
+  <div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>📧 contactus@rxmedocard.com | ☎ +91-9927964950</p> <li b-kr65r3xkkp>
+    <p>
+  <i class="fa-solid fa-location-dot" style="color: red; margin-right: 8px;"></i>
+  Essential Oil Association of India, C Block, Phase 2, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309.
+</p>
+
+                <a b-kr65r3xkkp href="#"
+                  ><i b-kr65r3xkkp class="bi bi-geo-alt me-2">
+    <p>🌐 <a href="https://rxmedocard.com/" target="_blank">www.rxmedocard.com</a> | © 2025 RX Medical Trust</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ================= LOADING SCREEN =================
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingScreen').classList.add('hidden');
+      }, 1000);
+    });
+
+    // ================= FLOATING PARTICLES =================
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // ================= NAVBAR SCROLL EFFECT =================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ================= MOBILE MENU TOGGLE =================
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // ================= POPUP FORM =================
+   // Existing popup code (your current one)
+const popup = document.getElementById('popupForm');
+const form = document.getElementById('eventForm');
+const successMsg = document.getElementById('successMsg');
+const errorMsg = document.getElementById('errorMsg');
+const thankYouMessage = document.getElementById('thankYouMessage');
+
+function openForm() {
+  popup.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeForm() {
+  popup.style.display = 'none';
+  document.body.style.overflow = 'auto';
+  form.reset();
+  successMsg.textContent = '';
+  errorMsg.textContent = '';
+  form.style.display = 'block';
+  thankYouMessage.style.display = 'none';
+}
+
+window.onclick = function(e) {
+  if (e.target == popup) {
+    closeForm();
+  }
+};
+
+// 👇 ADD THIS BELOW — logic for team name field
+const membersSelect = document.querySelector('select[name="members"]');
+const teamInput = document.querySelector('input[name="team"]');
+
+if (membersSelect && teamInput) {
+  membersSelect.addEventListener('change', () => {
+    if (parseInt(membersSelect.value) > 1) {
+      teamInput.required = true;
+      teamInput.placeholder = "Enter your team name (required)";
+    } else {
+      teamInput.required = false;
+      teamInput.placeholder = "Team name (optional)";
+    }
+  });
+}
+
+
+    // ================= FORM SUBMISSION =================
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzijv7XSSsC6Drj3uEDJ7CiEUYcN-EdRiN0iY4YiLU3_ogwlvI_oBU3YseRfIGffiBr/exec";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      successMsg.textContent = "";
+      errorMsg.textContent = "Submitting...";
+
+      const data = new FormData(form);
+
+      try {
+        await fetch(scriptURL, { method: "POST", body: data });
+        form.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+        errorMsg.textContent = '';
+        form.reset();
+      } catch (error) {
+        errorMsg.textContent = "⚠ Something went wrong. Please try again.";
+        successMsg.textContent = "";
+      }
+    });
+
+    // ================= SCROLL TO TOP BUTTON =================
+    const scrollTop = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollTop.style.display = 'flex';
+      } else {
+        scrollTop.style.display = 'none';
+      }
+    });
+
+    scrollTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // ================= SMOOTH SCROLL FOR ANCHOR LINKS =================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ================= INTERSECTION OBSERVER FOR ANIMATIONS =================
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections for scroll animations
+    document.querySelectorAll('.mission, .features-section, .participate, .strategist').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(50px)';
+      section.style.transition = 'all 0.8s ease';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

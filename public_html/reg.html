@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration Form</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .form-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      text-align: center;
+      color: #0d47a1;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #333;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+    .success, .error {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <h2>Event Registration Form</h2>
+
+    <form id="eventForm">
+      <label>Full Name *</label>
+      <input type="text" name="name" required>
+
+      <label>WhatsApp Number *</label>
+      <input type="text" name="whatsapp" required>
+
+      <label>Email *</label>
+      <input type="email" name="email" required>
+
+      <label>College *</label>
+      <input type="text" name="college" required>
+
+      <label>Stream *</label>
+      <select name="stream" required>
+        <option value="" disabled selected>Select stream</option>
+        <option>BBA</option>
+        <option>MBA</option>
+       
+    </select>
+
+      <label>Year of Passing *</label>
+      <input type="text" name="year" placeholder="e.g. 2026" required>
+
+      <label>Number of Members *</label>
+      <select name="members" required>
+        <option value="" disabled selected>Select number</option>
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option><option>6</option>
+      </select>
+
+      <label>Name of Team *</label>
+      <input type="text" name="team" required>
+
+      <label>Mentor (if any)</label>
+      <input type="text" name="mentor">
+
+      <button type="submit">Submit</button>
+      <div class="success" id="successMsg"></div>
+      <div class="error" id="errorMsg"></div>
+    </form>
+  </div>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzijv7XSSsC6Drj3uEDJ7CiEUYcN-EdRiN0iY4YiLU3_ogwlvI_oBU3YseRfIGffiBr/exec";
+    const form = document.getElementById("eventForm");
+    const successMsg = document.getElementById("successMsg");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      successMsg.textContent = "";
+      errorMsg.textContent = "Submitting...";
+
+      const data = new FormData(form);
+
+      try {
+        await fetch(scriptURL, { method: "POST", body: data });
+        successMsg.textContent = "✅ Registration submitted successfully!";
+        errorMsg.textContent = "";
+        form.reset();
+      } catch (error) {
+        errorMsg.textContent = "⚠ Something went wrong. Please try again.";
+        successMsg.textContent = "";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* ---------------------------------------------------
+✅ GLOBAL STYLES — Base font, background, and color
+--------------------------------------------------- */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif; /* Smooth readable font */
+  background: linear-gradient(to right, #e9eff5, #f8fbff); /* ✅ Dark blue gradient background */
+  margin: 0;
+  padding: 0;
+  color: #212529; /* Dark gray text */
+}
+
+/* ---------------------------------------------------
+✅ SIGNUP WRAPPER — Centers the form box on page
+--------------------------------------------------- */
+.signup-wrapper {
+  display: flex; /* Enables flex layout */
+  justify-content: center; /* Horizontally centers the form */
+  align-items: center; /* Vertically centers the form */
+  padding: 60px 20px; /* Adds spacing around the form container */
+}
+
+/* ---------------------------------------------------
+✅ SIGNUP BOX — White container with shadow and border
+--------------------------------------------------- */
+.signup-box {
+  background-color: #ffffff; /* White background for form box */
+  border-radius: 10px; /* Rounded corners */
+  padding: 40px;
+  max-width: 800px; /* Limits maximum width */
+  width: 100%;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.2); /* Soft blue shadow */
+  border-top: 6px solid #003d80; /* ✅ Dark blue top border */
+}
+
+/* ---------------------------------------------------
+✅ HEADER SECTION — Centered heading and subtitle
+--------------------------------------------------- */
+.signup-header {
+  text-align: center; /* ✅ Centers heading and subtitle */
+  margin-bottom: 30px;
+}
+
+.signup-header h2 {
+  font-size: 32px; /* Large heading */
+  font-weight: 600; /* Bold text */
+  color: #003d80; /* ✅ Dark blue heading */
+  margin-bottom: 10px;
+}
+
+.signup-header p {
+  font-size: 16px; /* Subtitle size */
+  color: #555; /* Medium gray text */
+}
+
+/* ---------------------------------------------------
+✅ FORM ROW — Aligns fields in two-column layout
+--------------------------------------------------- */
+.form-row {
+  display: flex; /* Enables horizontal layout */
+  gap: 20px; /* Space between columns */
+  margin-bottom: 25px; /* Space below each row */
+}
+
+/* ---------------------------------------------------
+✅ FORM GROUP — Styles each input block
+--------------------------------------------------- */
+.form-group {
+  flex: 1; /* Equal width columns */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500; /* Semi-bold label */
+  margin-bottom: 6px;
+  color: #000000; /* ✅ Black label text */
+}
+
+.form-group input {
+  padding: 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fefefe;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #003d80; /* ✅ Dark blue border on focus */
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* ---------------------------------------------------
+✅ CARD SELECTION — Radio buttons section
+--------------------------------------------------- */
+.form-group label[for="card_type"],
+.form-group > label {
+  font-size: 18px; /* Card heading size */
+  font-weight: 600; /* Bold heading */
+  color: #003d80; /* ✅ Dark blue heading */
+  margin-bottom: 10px;
+  display: block;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-group label {
+  font-size: 15px;
+  color: #444;
+}
+
+/* ---------------------------------------------------
+✅ SUBMIT BUTTON — Styled blue box button
+--------------------------------------------------- */
+.btn-submit {
+  background-color: #003d80; /* ✅ Dark blue background */
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #001f4d; /* ✅ Darker blue on hover */
+}
+
+/* ---------------------------------------------------
+✅ LOGIN PROMPT — Link below form
+--------------------------------------------------- */
+.login-prompt {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.login-prompt a {
+  color: #003d80; /* ✅ Dark blue link */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------
+✅ TERMS MODAL — Popup styling
+--------------------------------------------------- */
+#termsModal {
+  display: none;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  padding: 25px;
+  z-index: 999;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#termsModal h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #003d80; /* ✅ Dark blue modal heading */
+}
+
+#termsModal ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+#termsModal ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #495057;
+}
+
+#termsModal label {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#termsModal button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#termsModal button:first-of-type {
+  background-color: #28a745;
+  color: #fff;
+}
+
+#termsModal button:last-of-type {
+  background-color: #dc3545;
+  color: #fff;
+}

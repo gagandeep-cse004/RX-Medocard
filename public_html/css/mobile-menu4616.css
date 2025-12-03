@@ -1,0 +1,278 @@
+/**
+ * Modern Mobile Menu Styles for RX MEDO CARD
+ * This file provides enhanced styling for the mobile menu
+ */
+
+/* Body styles when mobile menu is open */
+body.mobile-menu-open {
+    /* Allow scrolling of the main content */
+    overflow-x: hidden !important;
+}
+
+/* Loading animation for nav links */
+.nav-link-loading {
+    position: relative !important;
+    pointer-events: none !important;
+}
+
+.nav-link-loading-indicator {
+    margin-left: 8px !important;
+    display: inline-block !important;
+    animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile Menu Container */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important; /* Start off-screen */
+        height: 100vh !important;
+        width: 70% !important;
+        max-width: 280px !important;
+        background: #ffffff !important;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15) !important;
+        padding: 1.5rem 0 !important;
+        transition: none !important; /* Remove transition */
+        overflow-y: auto !important;
+        z-index: 1050 !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        border-radius: 0 20px 20px 0 !important;
+        /* Disable touch actions only on the menu itself */
+        touch-action: pan-y !important; /* Allow vertical scrolling */
+    }
+
+    .navbar-collapse.show {
+        left: 0 !important; /* Show menu */
+    }
+
+    /* Remove the full-screen overlay that was blocking content */
+    /* We don't need the ::before pseudo-element anymore */
+
+    /* Mobile Menu Header */
+    .mobile-menu-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0.5rem 1.2rem 1.2rem !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .mobile-menu-title {
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        color: #001d4f !important;
+        margin: 0 !important;
+    }
+
+    .mobile-menu-close {
+        background: none !important;
+        border: none !important;
+        color: #001d4f !important;
+        font-size: 1.5rem !important;
+        cursor: pointer !important;
+        padding: 0.25rem !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .mobile-menu-close:hover {
+        color: #ef476f !important;
+        transform: rotate(90deg) !important;
+    }
+
+    /* Mobile Menu Items */
+    .navbar-nav {
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0 !important;
+        width: 100% !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.8rem 1.2rem !important;
+        display: flex !important;
+        align-items: center !important;
+        color: #001d4f !important;
+        font-weight: 500 !important;
+        font-size: 0.95rem !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(239, 71, 111, 0.05) !important;
+        color: #ef476f !important;
+        padding-left: 2rem !important;
+    }
+
+    .navbar-nav .nav-link.active {
+        background-color: rgba(239, 71, 111, 0.1) !important;
+        color: #ef476f !important;
+        font-weight: 600 !important;
+        border-left: 3px solid #ef476f !important;
+    }
+
+    /* Enhanced Icons - Mobile Only */
+    .navbar-nav .nav-link .d-lg-none i {
+        width: 35px !important;
+        height: 35px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-color: rgba(239, 71, 111, 0.1) !important;
+        color: #ef476f !important;
+        border-radius: 10px !important;
+        margin-right: 12px !important;
+        font-size: 1.1rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 6px rgba(239, 71, 111, 0.1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    /* Icon background effect - Mobile Only */
+    .navbar-nav .nav-link .d-lg-none i::before {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    .navbar-nav .nav-link .d-lg-none i::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 0 !important;
+        background-color: #ef476f !important;
+        border-radius: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        transition: width 0.4s ease, height 0.4s ease !important;
+        z-index: 1 !important;
+        opacity: 0 !important;
+    }
+
+    .navbar-nav .nav-link:hover .d-lg-none i {
+        color: white !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 10px rgba(239, 71, 111, 0.2) !important;
+    }
+
+    .navbar-nav .nav-link:hover .d-lg-none i::after {
+        width: 150px !important;
+        height: 150px !important;
+        opacity: 1 !important;
+    }
+
+    .navbar-nav .nav-link.active .d-lg-none i {
+        background-color: #ef476f !important;
+        color: white !important;
+        box-shadow: 0 6px 10px rgba(239, 71, 111, 0.2) !important;
+    }
+
+    /* Get Card Button */
+    .ms-auto {
+        width: 100% !important;
+        padding: 1.2rem !important;
+        margin-top: 0.8rem !important;
+    }
+
+    .get-card-btn {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.8rem !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 8px 15px rgba(239, 71, 111, 0.2) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        z-index: 1 !important;
+        transition: all 0.4s ease !important;
+    }
+
+    .get-card-btn::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+        transition: all 0.6s ease !important;
+        z-index: -1 !important;
+    }
+
+    .get-card-btn:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 12px 20px rgba(239, 71, 111, 0.3) !important;
+    }
+
+    .get-card-btn:hover::before {
+        left: 100% !important;
+    }
+
+    .get-card-btn i {
+        font-size: 1.2rem !important;
+        animation: pulse 2s infinite !important;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+}
+
+/* Navbar Toggler Button */
+.navbar-toggler {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 12px !important;
+    background-color: rgba(239, 71, 111, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 4px 8px rgba(239, 71, 111, 0.1) !important;
+}
+
+/* Hide navbar toggler in desktop view */
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(239, 71, 111, 0.2) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(239, 71, 111, 0.2) !important;
+}
+
+.navbar-toggler i {
+    font-size: 1.5rem !important;
+    color: #ef476f !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-toggler:hover i {
+    transform: rotate(90deg) !important;
+}
